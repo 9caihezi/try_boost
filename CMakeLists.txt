@@ -22,8 +22,9 @@ LINK_DIRECTORIES(${Boost_LIBRARY_DIRS})
 
 set(COMMON_LIBS ${Boost_LIBRARIES})
 
+message(status "env = ${CMAKE_CXX_COMPILER_ID}")
 if (CMAKE_CXX_COMPILER_ID EQUAL GNU)
-    message(status "env=GNU")
+    message(status "link pthread")
     set (COMMON_LIBS ${COMMON_LIBS} pthread)
 endif()
 
