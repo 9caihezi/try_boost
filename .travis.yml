@@ -11,8 +11,13 @@ addons:
 #    - libboost1.67-all-dev
     - cmake
 
+cache:
+  - $HOME/boost_1_67_0/boost
+  - $HOME/boost_1_67_0/stage/lib
+
 script:
-  - sudo apt-cache search libboost
+  - wget https://raw.githubusercontent.com/WrinklyNinja/ci-scripts/1.0.0/install_boost.py
+  - python install_boost.py --directory ~ --boost-version 1.67.0 system coroutine regex
   - mkdir -p build/
   - cd build
   - cmake ..
