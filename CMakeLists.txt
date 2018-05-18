@@ -20,5 +20,11 @@ endif()
 INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIR})
 LINK_DIRECTORIES(${Boost_LIBRARY_DIRS})
 
+set(COMMON_LIBS ${Boost_LIBRARIES})
+
+if (CMAKE_CXX_COMPILER_ID EQUAL GNU)
+    set (COMMON_LIBS ${COMMON_LIBS} pthread)
+endif()
+
 add_executable(main main.cpp)
-target_link_libraries(main ${Boost_LIBRARIES})
+target_link_libraries(main ${COMMON_LIBS})
