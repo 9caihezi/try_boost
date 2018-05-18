@@ -23,7 +23,7 @@ LINK_DIRECTORIES(${Boost_LIBRARY_DIRS})
 set(COMMON_LIBS ${Boost_LIBRARIES})
 
 message(status "** env = ${CMAKE_CXX_COMPILER_ID}")
-if (${CMAKE_CXX_COMPILER_ID} EQUAL GNU)
+if (${CMAKE_CXX_COMPILER_ID} STREQUAL GNU)
     message(status "** link pthread")
     set (COMMON_LIBS ${COMMON_LIBS} pthread)
 endif()
