@@ -5,11 +5,11 @@ os: linux
 addons:
   apt:
     sources:
-    - ubuntu-toolchain-r-test
-    - boost-latest
+      - ubuntu-toolchain-r-test
+      - boost-latest
     packages:
-    - cmake
-    - g++-5
+      - g++-5
+      - cmake
 
 cache:
   - $HOME/boost_1_67_0/boost
@@ -23,7 +23,7 @@ install:
 script:
   - mkdir -p build/
   - cd build
-  - cmake ..
+  - cmake .. -DBOOST_ROOT=$HOME/boost_1_67_0/
   - make
 #  - env CTEST_OUTPUT_ON_FAILURE=1 ctest
   - cd ..
